@@ -14,6 +14,6 @@ RSpec.feature 'Testing infrastructure', :type => :feature do
     fill_in "player2", :with => "Player2"
     click_button "Submit"
 
-    expect(page).to have_text("Player1", "Player2")
+    expect(page).to have_text("Player1\nVS\nPlayer2")
   end 
 end
