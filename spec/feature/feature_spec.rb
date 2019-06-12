@@ -1,8 +1,19 @@
-require './app.rb'
+require './lib/app.rb'
 
-feature 'Testing infrastructure' do
-  scenario 'Can run app and check page content' do
+RSpec.feature 'Testing infrastructure', :type => :feature do
+
+  # scenario 'Can run app and check page content' do
+  #   visit('/')
+  #   expect(page).to have_content 'Testing infrastructure working!'
+  # end
+
+  scenario 'Player insert names' do 
     visit('/')
-    expect(page).to have_content 'Testing infrastructure working!'
-  end
+
+    fill_in 'player1', :with => "Player1"
+    fill_in "player2", :with => "Player2"
+    click_button "Submit"
+
+    expect(page).to have_text("Player1", "Player2")
+  end 
 end

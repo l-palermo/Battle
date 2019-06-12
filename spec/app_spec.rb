@@ -1,4 +1,4 @@
-require './app.rb'
+require './lib/app.rb'
 
 RSpec.describe Battle do
 
