@@ -1,5 +1,11 @@
 <div>
+
   <h1 align='center'> BATTLE </h1>
   <h2 align='center'> <%= @player1 %> vs <%= @player2 %> </h2>
   <h3 align='right'> <%= @player2 %>: score 100/100 </h3>
+
+  <form action='/attack' method='post'>
+  <button align='right' type="submit" name='attack'> Attack! </button>
+  </form>
+  <h1 align='center'> <%= @attack %> </h1>
 </div>
