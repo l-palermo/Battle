@@ -11,9 +11,19 @@ RSpec.feature 'Testing infrastructure', :type => :feature do
     visit('/')
 
     fill_in 'player1', :with => "Player1"
-    fill_in "player2", :with => "Player2"
+    fill_in 'player2', :with => "Player2"
     click_button "Submit"
 
-    expect(page).to have_text("Player1\nVS\nPlayer2")
+    expect(page).to have_text("BATTLE\nPlayer1 vs Player2")
   end 
-end
+
+  scenario 'player 2\'s hits points' do
+    visit('/')
+
+    fill_in 'player1', :with => "Player1"
+    fill_in 'player2', :with => "Player2"
+    click_button "Submit"
+
+    expect(page).to have_text('Player2: score 100/100')
+  end
+  end 
