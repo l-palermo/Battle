@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'shotgun'
 require './lib/player.rb'
+require './lib/game.rb'
 
 class Battle < Sinatra::Base
   enable :sessions
@@ -26,9 +27,11 @@ class Battle < Sinatra::Base
 
   post '/attack' do
     session[:attack] = "#{$player1.name} attacked #{$player2.name}"
-    $player1.attack($player2)
+    Game.new.attack($player2)
     redirect '/play'
   end
+
+
   
   run! if app_file == $0
 end

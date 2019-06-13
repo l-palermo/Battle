@@ -12,11 +12,6 @@ RSpec.describe Player do
     expect(giacomo.score).to eq(100)
   end
 
-  it 'Paolo #attack Giacomo' do
-    expect(giacomo).to receive(:infliction)
-    paolo.attack(giacomo)
-  end
-
   it 'take two off points' do
     expect { giacomo.infliction }.to change { giacomo.score }.by(-10)
   end
