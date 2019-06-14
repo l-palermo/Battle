@@ -7,5 +7,7 @@
   <form action='/attack' method='post'>
   <button type="submit" name='attack'> Attack! </button>
   </form>
-  <h1 align='center'> <%= @attack %> </h1>
+  <% if @attack == 'attacked' %>
+  <h1 align='center'> <%= @player1 %> attacked <%= @player2 %></h1>
+  <% end %>
 </div>
