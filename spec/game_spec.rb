@@ -5,8 +5,14 @@ RSpec.describe Game do
   let(:player2) { double :player2 }
   let(:subject) { described_class.new(player1, player2) }
 
-  it 'Paolo #attack Giacomo' do
+  it 'Player1 #attack Player2' do
+    expect(player2).to receive(:infliction)
+    subject.attack
+  end
+
+  it 'Player2 #attack Playuer1' do
+    subject.turn_switcher
     expect(player1).to receive(:infliction)
-    subject.attack(player1)
+    subject.attack
   end
 end 

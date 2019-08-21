@@ -1,13 +1,31 @@
-<div>
-
   <h1 align='center'> BATTLE </h1>
   <h2 align='center'> <%= @player1 %> vs <%= @player2 %> </h2>
-  <h3 align='right'> <%= @player2 %>: score <%= @player2_score %>/100 </h3>
 
+  <div class='SameLine'>
+  <h3 style="float: left"> <%= @player1 %>: score <%= @player1_score %>/100 </h3>
+  <h3 style="float: right"> <%= @player2 %>: score <%= @player2_score %>/100 </h3>
+  </div>
+
+  <div>
   <form action='/attack' method='post'>
   <button type="submit" name='attack'> Attack! </button>
   </form>
-  <% if @attack == 'attacked' %>
+  </div>
+
+  <div>
+  
+  </div>
+
+  <div>
+  <% if @attack == true %>
   <h1 align='center'> <%= @player1 %> attacked <%= @player2 %></h1>
+  <form action='/ok' method='post'>
+    <button type="submit" name='ok'> OK </button>
+  </form>
+  <% elsif @attack == false %>
+  <h1 align='center'> <%= @player2 %> attacked <%= @player1 %></h1>
+  <form action='/ok' method='post'>
+    <button type="submit" name='ok'> OK </button>
+  </form>
   <% end %>
-</div>
+  </div>
